@@ -1,0 +1,49 @@
+# Dhruv Pal
+
+> Computer Science and Engineering undergraduate specializing in Artificial Intelligence and Machine Learning at Lovely Professional University.
+
+## Profile
+
+Dhruv Pal is based in Punjab, India. His academic and project interests include applied machine learning, software development, systems programming, research, and technical product development. He expects to graduate in August 2028.
+
+## Selected projects
+
+- [Vendor Invoice Intelligence System](https://github.com/Dhruva105/Vendor-Invoice-Intelligence-System): Python, SQL, scikit-learn, SQLite, and Streamlit application for freight-cost estimation and invoice risk review.
+- [Unix-like File System Recovery and Optimization Tool](https://github.com/Dhruva105/file-system-recovery-tool): C++17 virtual file system with inode-based structures, bitmap allocation, write-ahead journaling, an LRU block cache, consistency checking, and defragmentation.
+- [Loan Eligibility and Risk Modeling](https://github.com/Dhruva105/loan-kiosk-model): cost-sensitive classification exploration with threshold optimization, SHAP/LIME explainability components, and a Flask API.
+- [Intelligent Task Prioritizer](https://github.com/Dhruva105/Intelligent-Task-Prioritizer): Java Swing application using a custom Binary Min-Heap to prioritize tasks by deadline and importance.
+- [BigInt C++ Library](https://github.com/Dhruva105/BigInt-CPP-Library): arbitrary-precision integer arithmetic library.
+- [Heart Disease Prediction](https://github.com/Dhruva105/heart-disease-prediction): educational Streamlit project using a saved scikit-learn K-Nearest Neighbors model, one-hot feature alignment, and a saved StandardScaler. Its repository includes `heart.csv` (918 rows); upstream dataset provenance and evaluation metrics are not documented. It is not clinically validated or a medical diagnostic tool.
+
+## Research
+
+Co-author of “Adaptive Learning in the Cloud: AI-Driven Personalization and Accessibility in Modern Education,” with Suvankar Dey and Tanya Pal. Published in the International Journal of Multidisciplinary Educational Research, 2025, Volume 14, Issue 10(4), pages 62–68. [DOI](https://doi.org/10.5281/zenodo.17501410).
+
+## Technical areas
+
+Python, C++17, Java, JavaScript, SQL, PHP, scikit-learn, Pandas, NumPy, Flask, REST APIs, SQLite, Streamlit, React, TypeScript, HTML, CSS, Git, GitHub, Postman, Linux, shell scripting, Docker, Microsoft Azure, and AWS.
+
+## Education and credentials
+
+B.Tech in Computer Science and Engineering, specializing in Artificial Intelligence and Machine Learning, Lovely Professional University, Punjab, India (August 2024–August 2028 expected).
+
+Credentials and technical learning listed in the profile: Microsoft Certified Azure Data Scientist Associate (June 2025); Microsoft Certified Fabric Data Engineer Associate (January 2026); 5-Day AI Agents Intensive Course by Google and Kaggle (December 2025); Postman API Fundamentals Student Expert (2025); IBM Artificial Intelligence Fundamentals; Skillera Linux Commands and Shell Scripting.
+
+## Certifications & badges
+
+The [certification inventory](/certifications) contains 36 distinct credentials with search and category/issuer filters. It distinguishes professional certifications from courses, workshops, internships, participation, presentations, and badges. Previews redact private IDs and QR codes.
+
+## Contact
+
+- Email: [dhruvpal105@gmail.com](mailto:dhruvpal105@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/dhruv-pal-521120311/)
+- [GitHub](https://github.com/Dhruva105)
+
+## Portfolio
+
+- [Home page](/)
+- [Certifications & Badges](/certifications)
+- [Selected work](#work)
+- [Research](#research)
+- [About and toolkit](#about)
+- [Contact](#contact)
