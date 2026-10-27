@@ -342,7 +342,7 @@ function SectionLabel({
   children: React.ReactNode;
 }) {
   return (
-    <div className={styles.sectionLabel}>
+    <div className={styles.sectionLabel} data-reveal="section-label">
       <span>{number}</span>
       <span>{children}</span>
     </div>

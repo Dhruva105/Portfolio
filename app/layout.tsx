@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Instrument_Serif, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.scss";
-import { siteUrl } from "@/app/lib/site-url";
+import { isIndexable, siteUrl } from "@/app/lib/site-url";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -15,15 +15,19 @@ const inter = Inter({
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
+  weight: "400",
+  style: "italic",
+  variable: "--font-editorial",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Dhruv Pal — AI/ML, Software & Applied Research",
     template: "%s | Dhruv Pal",
@@ -58,11 +62,11 @@ export const metadata: Metadata = {
     ...(siteUrl ? { images: ["/images/dhruv-cinematic.png"] } : {}),
   },
   robots: {
-    index: true,
-    follow: true,
+    index: isIndexable,
+    follow: isIndexable,
     googleBot: {
-      index: true,
-      follow: true,
+      index: isIndexable,
+      follow: isIndexable,
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,
@@ -83,9 +87,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={[spaceGrotesk.variable, inter.variable, plexMono.variable].join(
-          " ",
-        )}
+        className={[
+          spaceGrotesk.variable,
+          inter.variable,
+          instrumentSerif.variable,
+        ].join(" ")}
       >
         {children}
       </body>

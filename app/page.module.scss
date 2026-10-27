@@ -12,15 +12,17 @@
 .photoIndex{position:absolute;z-index:2;right:1.5rem;bottom:1.25rem;color:#c2c6b5;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.13em}
 .heroHalo{position:absolute;z-index:-1;top:11%;right:15%;width:34vw;max-width:470px;aspect-ratio:1;border:1px solid #d7ff3f22;border-radius:50%;pointer-events:none}
 .heroHalo span{position:absolute;inset:9%;border:1px solid #d7ff3f1a;border-radius:50%}.heroHalo span:nth-child(2){inset:20%}.heroHalo span:nth-child(3){inset:32%;border-color:#d7ff3f16}
-.heroContent{position:relative;z-index:3;width:min(68%,810px);padding-top:.5rem;animation:hero-arrive 700ms cubic-bezier(.16,1,.3,1) both}
-@keyframes hero-arrive{from{opacity:.35;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.heroContent{position:relative;z-index:3;width:min(68%,810px);padding-top:.5rem}
+@keyframes hero-support{from{opacity:.86;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.heroName,.heroSubline,.heroIntro,.heroActions{animation:hero-support 480ms cubic-bezier(.16,1,.3,1) both}
+.heroName{animation-delay:40ms}.heroSubline{animation-delay:100ms}.heroIntro{animation-delay:150ms}.heroActions{animation-delay:210ms}
 .eyebrow,.monoLabel,.sectionLabel,.projectMeta,.artTopline,.heroFooter,.photoIndex,.asideNumber,.practiceSteps,.paperTop,.paperDetails dt,.skillGroup h3,.credentialsBlock .monoLabel,.communityNote,.footer,.ticker,.diskReadout,.diskLegend,.digitLabel,.digitFoot,.sketchSideNote>span,.modelNode>span,.outcomeRow,.costCaption>span,.matrixCorner,.heapCaption>span,.heapComplexity,.projectNote{font-family:var(--font-mono);font-size:.62rem;font-weight:400;letter-spacing:.085em;line-height:1.45;text-transform:uppercase}
 .eyebrow{display:flex;align-items:center;gap:.65rem;margin:0 0 1.25rem;color:var(--muted);letter-spacing:.12em}
 .liveDot{width:7px;height:7px;flex:0 0 auto;border-radius:50%;background:var(--acid);box-shadow:0 0 13px #d7ff3f7a}
 .heroName{display:flex;align-items:baseline;gap:1rem;margin:0 0 1.15rem;color:var(--paper);font-family:var(--font-display);font-size:1.05rem;font-weight:600;letter-spacing:.06em}
 .heroName span{color:var(--muted);font-family:var(--font-mono);font-size:.58rem;font-weight:400;letter-spacing:.08em}
 .heroTitle{max-width:800px;margin:0;font-family:var(--font-display);font-size:clamp(3.25rem,5.55vw,5.45rem);font-weight:500;letter-spacing:-.075em;line-height:.99;text-wrap:balance}
-.heroTitle span{display:block}.heroTitle span:nth-child(3){margin-top:.08em;color:#b5b9b0}.heroTitle em{color:var(--acid);font-style:normal}
+.heroTitle span{display:block}.heroTitle span:nth-child(3){margin-top:.08em;color:#b5b9b0}.heroTitle em{color:var(--acid);font-family:var(--font-editorial);font-size:1.07em;font-style:italic;font-weight:400;letter-spacing:-.035em}
 .heroSubline{margin:.8rem 0 0;color:#c8cbc3;font-family:var(--font-display);font-size:clamp(1.25rem,1.9vw,1.8rem);letter-spacing:-.045em}
 .heroIntro{max-width:400px;margin:1.4rem 0 0;color:#b2b6ae;font-size:.92rem;line-height:1.8}
 .heroActions{display:flex;align-items:center;gap:1.6rem;margin-top:2.2rem}
@@ -34,10 +36,12 @@
 .ticker{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-block:1px solid var(--line);color:#aeb2a8;font-family:var(--font-mono);font-size:.61rem;letter-spacing:.12em}
 .ticker i{width:4px;height:4px;flex:0 0 auto;transform:rotate(45deg);background:var(--acid)}
 .questionsSection{padding:8rem 0 7.5rem}.sectionLabel{display:flex;align-items:center;gap:1rem;color:#a2a79e;font-size:.62rem;letter-spacing:.12em}.sectionLabel span:first-child{color:var(--acid)}
+.sectionLabel::after{content:"";width:clamp(2rem,5vw,4.5rem);height:1px;flex:0 0 auto;margin-left:auto;background:linear-gradient(90deg,var(--line),var(--acid));transform:scaleX(.62);transform-origin:left;transition:transform 500ms cubic-bezier(.16,1,.3,1)}
+.sectionLabel.motion-visible::after{transform:scaleX(1)}
 .questionsLayout{display:grid;grid-template-columns:1.2fr .55fr;gap:9vw;align-items:end;margin-top:3.5rem}
 .questionsHeadline h2,.workHeading h2,.researchIntro h2,.aboutText h2,.contactHeading h2{margin:0;font-family:var(--font-display);font-size:clamp(3rem,5.35vw,5.7rem);font-weight:400;letter-spacing:-.075em;line-height:.98;text-wrap:balance}
 .questionsHeadline h2 span,.questionsHeadline h2 em,.workHeading h2 span,.researchIntro h2 span,.aboutText h2 span,.contactHeading h2 span{display:block}
-.questionsHeadline h2 em,.workHeading h2 em,.researchIntro h2 em,.aboutText h2 em,.contactHeading h2 em{color:var(--acid);font-style:normal}
+.questionsHeadline h2 em,.workHeading h2 em,.researchIntro h2 em,.aboutText h2 em,.contactHeading h2 em{color:var(--acid);font-family:var(--font-editorial);font-size:1.06em;font-style:italic;letter-spacing:-.035em}
 .questionsHeadline h2 span,.workHeading h2 span,.researchIntro h2 span,.aboutText h2 span,.contactHeading h2 span{color:#aeb2a9}
 .questionsHeadline>p,.questionsAside .asideText,.workHeading>p,.projectSummary,.projectDetail,.researchIntro>p:last-child,.aboutText>p,.skillsHeading>p,.educationBlock>p,.contactDetails>p{color:#aeb2a9;font-size:.9rem;line-height:1.8}
 .questionsHeadline>p{max-width:580px;margin:1.8rem 0 0}
@@ -53,7 +57,7 @@
 .featuredProjects{border-bottom:1px solid var(--line)}
 .featuredProject,.featuredReverse{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding:2rem 0 3.8rem;border-top:1px solid var(--line)}
 .featuredReverse{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)}.featuredReverse .projectArt{order:2}.featuredReverse .projectCopy{order:1}
-.projectArt{position:relative;min-width:0;aspect-ratio:1.35;margin:0;overflow:hidden;border:1px solid #343a35;background:radial-gradient(ellipse at 50% 55%,#2830218c,transparent 70%),#101311;color:var(--paper);isolation:isolate}
+.projectArt{position:relative;min-width:0;aspect-ratio:1.35;margin:0;overflow:hidden;border:1px solid #343a35;background:radial-gradient(ellipse at 50% 55%,#2830218c,transparent 70%),#101311;color:var(--paper);isolation:isolate;transition:transform 300ms cubic-bezier(.16,1,.3,1),border-color 240ms ease,filter 300ms ease}
 .projectArt:before{position:absolute;z-index:-1;inset:0;content:"";opacity:.52;background-image:linear-gradient(to right,#e5efda0d 1px,transparent 1px),linear-gradient(to bottom,#e5efda0d 1px,transparent 1px);background-size:30px 30px;mask-image:radial-gradient(ellipse at center,#000,transparent 85%)}
 .artTopline{position:absolute;z-index:5;top:0;right:0;left:0;display:flex;justify-content:space-between;gap:.8rem;padding:.85rem 1rem;border-bottom:1px solid #c7d2bd1c;color:#929a8f;font-size:.52rem;letter-spacing:.08em}
 .artSignal{display:inline-flex;align-items:center;gap:.4rem;color:#c1c7ba}.artSignal i{width:5px;height:5px;border-radius:50%;background:var(--acid)}
@@ -179,13 +183,19 @@
  .credentialsBlock ul li{align-items:flex-start}.credentialsBlock ul b{font-size:.7rem}.credentialsBlock ul time{font-size:.47rem}.communityNote{margin-top:1.8rem}
  .contactSection{padding-bottom:4rem}.contactGrid{gap:2.2rem}.contactHeading h2{font-size:clamp(4rem,18vw,6rem)}.socialLinks{flex-wrap:wrap;gap:.9rem 1.2rem}.footer{min-height:62px;font-size:.46rem}
 }
+@media(hover:hover) and (pointer:fine){.projectArt:hover{transform:scale(1.012);border-color:#d7ff3f70;filter:saturate(1.06)}}
 @media(prefers-reduced-motion:reduce){
- .heroContent{animation:none}
- .primaryAction,.secondaryAction,.textLink,.repoLink,.paperLink,.emailLink,.socialLinks a,.scrollCue{transition:none}
+ .heroName,.heroSubline,.heroIntro,.heroActions{animation:none}
+ .primaryAction,.secondaryAction,.textLink,.repoLink,.paperLink,.emailLink,.socialLinks a,.scrollCue,.projectArt,.sectionLabel::after{transition:none}
 }
 
 
 .projectDisclaimer{margin:.8rem 0 0;padding:.15rem 0 .15rem .75rem;border-left:1px solid var(--acid);color:#c4caaf;font-size:.7rem;line-height:1.65}
 .credentialsCta{display:inline-flex;align-items:center;gap:.75rem;margin-top:1.25rem;padding:.78rem .9rem;border:1px solid #454a47;color:var(--paper);font-size:.7rem;text-decoration:none;transition:border-color 180ms ease,color 180ms ease}
-.credentialsCta span{color:var(--acid)}.credentialsCta:hover{border-color:var(--acid);color:var(--acid)}
+.credentialsCta span{color:var(--acid);transition:transform 180ms ease}.credentialsCta:hover{border-color:var(--acid);color:var(--acid)}.credentialsCta:hover span{transform:translate(2px,-2px)}
+.primaryAction span,.secondaryAction span,.textLink span{transition:transform 180ms ease}
+.primaryAction:hover span,.primaryAction:focus-visible span{transform:translateY(2px)}
+.secondaryAction:hover span,.secondaryAction:focus-visible span,.textLink:hover span,.textLink:focus-visible span{transform:translate(2px,-2px)}
 @media(prefers-reduced-motion:reduce){.credentialsCta{transition:none}}
+.focusGrid .focusItem:nth-child(2).motion-visible{transition-delay:60ms}.focusGrid .focusItem:nth-child(3).motion-visible{transition-delay:100ms}.focusGrid .focusItem:nth-child(4).motion-visible{transition-delay:140ms}
+.projectGrid .projectTile:nth-child(2).motion-visible{transition-delay:60ms}.projectGrid .projectTile:nth-child(3).motion-visible{transition-delay:100ms}.projectGrid .projectTile:nth-child(4).motion-visible{transition-delay:140ms}

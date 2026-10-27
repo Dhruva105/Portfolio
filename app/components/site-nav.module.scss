@@ -82,7 +82,7 @@
     border: 1px solid var(--line);
     border-radius: 50%;
     color: var(--acid);
-    transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
   }
 
   &:hover span {
@@ -90,6 +90,52 @@
     color: var(--paper);
     background: var(--acid-dim);
   }
+}
+
+.headerActions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.motionToggle {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+
+  &:hover:not(:disabled) {
+    border-color: #d7ff3f70;
+    color: var(--paper);
+    background: var(--acid-dim);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.78;
+  }
+}
+
+.motionIndicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.motionToggle[aria-pressed="true"] .motionIndicator {
+  background: var(--acid);
+  box-shadow: 0 0 8px #d7ff3f7a;
 }
 
 .menuToggle,
@@ -104,7 +150,7 @@
 
   .navigation {
     min-height: 70px;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr auto;
     gap: 1rem;
   }
 
@@ -112,6 +158,10 @@
   .contactLink {
     display: none;
   }
+
+  .headerActions { gap: 0.55rem; }
+
+  .motionToggle { min-height: 42px; padding-inline: 0.7rem; }
 
   .menuToggle {
     display: grid;
@@ -188,7 +238,8 @@
 @media (prefers-reduced-motion: reduce) {
   .desktopLinks a,
   .contactLink span,
-  .menuToggle span {
+  .menuToggle span,
+  .motionToggle {
     transition: none;
   }
 }

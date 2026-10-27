@@ -15,6 +15,8 @@ const sections = [
 
 export function SiteNav({ page = "home" }: { page?: Page }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [motionOn, setMotionOn] = useState(true);
+  const [systemReducedMotion, setSystemReducedMotion] = useState(false);
   const menuToggle = useRef<HTMLButtonElement>(null);
   const destination = (hash: string) => page === "home" ? hash : `/${hash}`;
 
@@ -30,7 +32,37 @@ export function SiteNav({ page = "home" }: { page?: Page }) {
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [menuOpen]);
 
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncPreference = () => {
+      let savedPreference: string | null = null;
+      try {
+        savedPreference = window.sessionStorage.getItem("portfolio-motion");
+      } catch {
+        // The control still works for this page if session storage is unavailable.
+      }
+      const enabled = !preference.matches && savedPreference !== "off";
+      setSystemReducedMotion(preference.matches);
+      setMotionOn(enabled);
+      document.documentElement.dataset.motion = enabled ? "on" : "off";
+    };
+
+    syncPreference();
+    preference.addEventListener("change", syncPreference);
+    return () => preference.removeEventListener("change", syncPreference);
+  }, []);
+
   const closeMenu = () => setMenuOpen(false);
+  const toggleMotion = () => {
+    const nextMotionOn = !motionOn;
+    setMotionOn(nextMotionOn);
+    document.documentElement.dataset.motion = nextMotionOn ? "on" : "off";
+    try {
+      window.sessionStorage.setItem("portfolio-motion", nextMotionOn ? "on" : "off");
+    } catch {
+      // The control remains usable for the current page without session storage.
+    }
+  };
   const certificationCurrent = page === "certifications" ? "page" as const : undefined;
 
   return (
@@ -61,22 +93,40 @@ export function SiteNav({ page = "home" }: { page?: Page }) {
           </Link>
         </div>
 
-        <a className={styles.contactLink} href={destination("#contact")}>
-          Start a conversation <span aria-hidden="true">↗</span>
-        </a>
-
-        <button
-          ref={menuToggle}
-          className={styles.menuToggle}
-          type="button"
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-navigation"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span />
-          <span />
-        </button>
+        <div className={styles.headerActions}>
+          <a className={styles.contactLink} href={destination("#contact")}>
+            Start a conversation <span aria-hidden="true">↗</span>
+          </a>
+          <button
+            className={styles.motionToggle}
+            type="button"
+            aria-label={
+              systemReducedMotion
+                ? "Motion is off because reduced motion is enabled in your system settings"
+                : motionOn
+                  ? "Turn motion off"
+                  : "Turn motion on"
+            }
+            aria-pressed={motionOn && !systemReducedMotion}
+            disabled={systemReducedMotion}
+            onClick={toggleMotion}
+          >
+            <span className={styles.motionIndicator} aria-hidden="true" />
+            MOTION {motionOn && !systemReducedMotion ? "ON" : "OFF"}
+          </button>
+          <button
+            ref={menuToggle}
+            className={styles.menuToggle}
+            type="button"
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span />
+            <span />
+          </button>
+        </div>
       </nav>
 
       <div
