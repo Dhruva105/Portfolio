@@ -9,3 +9,5 @@ npm-debug.log*
 /scripts/
 /work/
 /.vercel/
+/NUL
+/NUL.map
